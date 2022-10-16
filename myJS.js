@@ -2,6 +2,8 @@ const _ = require('lodash')
 
 const print = console.log;
 
+const regexExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
 
 const user = {
     name: 'Imie',
@@ -92,3 +94,37 @@ function zad4(user){
     
 }
 console.log(zad4(user))
+
+
+const collections = [
+    {},
+    15,
+    "hello@test.pl",
+    null,
+    ['aaa', 'bbb', 5],
+    'admin@gmail.com',
+    undefined,
+    'a34@yahoo.com',
+    '321@a',
+    '321.pl'
+    ];
+
+
+
+
+
+const getMails = (collections) => { 
+    let result = []
+    for (var value in collections){
+        if (typeof(collections[value]) === 'string' && regexExp.test(collections[value]) ){
+            result.push(collections[value])
+        }
+    }
+    return result
+}
+
+
+
+console.log(getMails(collections))
+
+
