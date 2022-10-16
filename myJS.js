@@ -70,3 +70,25 @@ if (Object.keys(user)[i] === 'allGrades'){
 
 }
 */
+
+function zad4(user){
+
+    let row = [];
+    
+    for (let i = 0; i < Object.keys(user).length;i++){
+        row.push(Object.values(user.allGrades)[i])
+    }
+    console.log(row)
+
+    result = _.find(row,function subjectName(row){
+        if (row.weight === 1){
+            return row.subjectName;
+        }
+    } )
+
+    return result;
+
+
+    
+}
+console.log(zad4(user))
